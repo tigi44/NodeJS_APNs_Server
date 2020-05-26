@@ -1,0 +1,22 @@
+{
+  "name": "nodejsapnsserver",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pm2-dev start ecosystem.config.js",
+    "start": "pm2 start ecosystem.config.js --env production"
+  },
+  "dependencies": {
+    "apn": "^2.2.0",
+    "body-parser": "~1.18.2",
+    "chalk": "^2.4.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "jsoneditor": "^5.14.1",
+    "morgan": "~1.9.0",
+    "pm2": "^3.5.0",
+    "serve-favicon": "~2.4.5"
+  }
+}

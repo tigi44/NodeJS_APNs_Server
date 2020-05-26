@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/javascripts/jsoneditor/dist/jsoneditor.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+  </head>
+  <body>
+
+    <header>
+    </header>
+
+    <main class="container" role="main">
+
+      <div class="modal-body" id="myModal">
+                    <div class="form-group">
+                      <label for="appId">APP ID :</label>
+                      <span style="color: red;">*&nbsp;</span>
+                      <input type="text" class="form-control" name="appId" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="token">TOKEN :</label>
+                      <span style="color: red;">*&nbsp;</span>
+                      <input type="text" class="form-control" name="token" required>
+                    </div>
+
+                    <input type="radio" name="production" value="0" checked> sandbox <input type="radio" name="production" value="1"> production
+                    <br><br>
+                    <div id="jsoneditor" style="height: 300px;"></div>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-warning btn-modal-sendpush">SEND PUSH</button>
+                    </div>
+                  </div>
+
+    </main>
+
+    <footer>
+      <ul>
+        <li>Copyright © 2020 by <a href="mailto:onlytg@naver.com" style="text-decoration: none;">tigi44</a>.  All rights reserved.</li>
+      </ul>
+    </footer>
+
+    </body>
+
+    <script src="javascripts/requireJS.js"></script>
+    <script src="javascripts/requireJSConfig.js"></script>
+    <script type="text/javascript">
+      requirejs(['apns'], function (APP) {
+        let app = new APP();
+      });
+    </script>
+
+</html>
