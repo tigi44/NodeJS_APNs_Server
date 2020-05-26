@@ -23,6 +23,15 @@ $ npm run start
 ```
 
 ## SETTING Push Certification
+- generate .cer & .p12 to .pem files
+
+```
+openssl x509 -in cert.cer -inform DER -outform PEM -out cert.pem
+openssl pkcs12 -in key.p12 -out key.pem -nodes
+
+```
+
+- setting in apns server options
 
 ```js
 // sendApns.js
