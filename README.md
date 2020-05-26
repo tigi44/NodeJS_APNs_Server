@@ -22,10 +22,12 @@ $ npm run start
 
 ## SETTING Push Certification
 - export cert.cer in keychain access
+
 ![Image](./images/push_certification.png)
 ![Image](./images/cert_cer.png)
 
 - export key.p12 in keychain access
+
 ![Image](./images/push_certification.png)
 ![Image](./images/key_p12.png)
 
@@ -65,4 +67,5 @@ options : {
 ```
 
 - WebPage
+
 ![Image](./images/index.png)
