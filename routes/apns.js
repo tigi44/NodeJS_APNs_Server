@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, callback) {
     let extension = path.extname(file.originalname);
     let basename  = path.basename(file.originalname, extension);
-    let today     = new Date().toLocaleString().replace(new RegExp(/-/, 'g'), '').replace(/ /, '').replace(/T/, '').replace(new RegExp(/:/, 'g'), '').replace(/\..+/, '')
+    let today     = new Date().toISOString().replace(new RegExp(/-/, 'g'), '').replace(/ /, '').replace(/T/, '').replace(new RegExp(/:/, 'g'), '').replace(/\..+/, '')
     callback(null, basename + '_upload_' + today + extension);
   }
 });
