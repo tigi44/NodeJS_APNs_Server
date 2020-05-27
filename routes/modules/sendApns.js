@@ -27,7 +27,7 @@ module.exports = {
 
     return fileName
   },
-  certificationFilePath : function() {
+  certificateFilePath : function() {
 
     let dirPath = this.certDirPath
     if (!fs.existsSync(dirPath)){
@@ -68,7 +68,7 @@ module.exports = {
     var options = this.options;
 
     options.production = production ? true : false;
-    options.cert       = this.certificationFilePath()
+    options.cert       = this.certificateFilePath()
     options.key        = this.keyFilePath()
 
     var apnProvider  = new apn.Provider(options);

@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 
   res.render('apns', {
     title: 'APNs Server',
-    certFileName: path.basename(apn.certificationFilePath()),
+    certFileName: path.basename(apn.certificateFilePath()),
     keyFileName: path.basename(apn.keyFilePath())
   })
 });
