@@ -37,6 +37,7 @@ openssl x509 -in cert.cer -inform DER -outform PEM -out cert.pem
 openssl pkcs12 -in key.p12 -out key.pem -nodes
 ```
 
+### Setting push cetification files
 #### v1.0.0
 - setting push cetification files in apns server options
 ```js
