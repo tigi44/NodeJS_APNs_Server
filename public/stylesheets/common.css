@@ -157,16 +157,16 @@ tr td div.div-contents p {
 
 /* file upload */
 
-main.fileUpload .upload-column  {
+.fileUpload  {
   width: 50%;
   margin: 20px auto;
 }
 
-main.fileUpload .upload-column .card {
+.fileUpload .card {
   padding: 40px;
 }
 
-main.fileUpload .upload-column .file-upload-label{
+.fileUpload .file-upload-label{
   position: absolute;
   top: 0;
   right: 0;
@@ -180,32 +180,32 @@ main.fileUpload .upload-column .file-upload-label{
   width: 90%;
 }
 
-main.fileUpload .card-main-header button, main.fileUpload .btn-card-add, main.fileUpload .btn-card-edit {
+.fileUpload .card-main-header button, main.fileUpload .btn-card-add, main.fileUpload .btn-card-edit {
   display: none;
 }
 
-main.fileUpload .btn-card-delete {
+.fileUpload .btn-card-delete {
   border-top-left-radius: 0.2rem!important;
   border-bottom-left-radius: 0.2rem!important;
 }
 
-main.fileUpload .card .img-fileUpload {
+.fileUpload .card .img-fileUpload {
   max-width: 100px;
 }
 
-main.fileUpload ul {
+.fileUpload ul {
   margin: 0;
   padding: 0;
 }
 
-main.fileUpload ul.image-flex {
+.fileUpload ul.image-flex {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-main.fileUpload li {
+.fileUpload li {
   list-style-type: none;
   margin: 10px 5px;
   padding: 0;

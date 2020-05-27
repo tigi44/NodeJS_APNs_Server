@@ -20,7 +20,7 @@ $ npm run dev
 $ npm run start
 ```
 
-## SETTING Push Certification
+## Generate Push Certification
 - export cert.cer in keychain access
 
 ![Image](./images/push_certification.png)
@@ -37,7 +37,8 @@ openssl x509 -in cert.cer -inform DER -outform PEM -out cert.pem
 openssl pkcs12 -in key.p12 -out key.pem -nodes
 ```
 
-- setting in apns server options
+#### v1.0.0
+- setting push cetification files in apns server options
 ```js
 // sendApns.js
 ...
@@ -48,10 +49,20 @@ options : {
 ...
 ```
 
+#### v2.0.0
+- upload push cetification files on sendpush webpage
+
 ## WebPage - SEND Push
+
+- upload [push certification files](#generate-push-certification) (v2.0.0)
+  - cert file(.pem)
+  - key file(.pem)
+
+![Image](./images/index_v2_0_0.png)
+
 - input appID
 - input device token
-- select production
+- select production (sandbox or production)
 - validate push contents json
 ```json
 // example push json format

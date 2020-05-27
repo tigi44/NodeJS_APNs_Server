@@ -1,9 +1,37 @@
-var apn = require('apn');
+const apn   = require('apn');
+const fs    = require('fs');
+const path  = require('path');
 
-var sandboxGateway = 'gateway.sandbox.push.apple.com';
-var gateway = 'gateway.push.apple.com';
+const sandboxGateway = 'gateway.sandbox.push.apple.com';
+const gateway        = 'gateway.push.apple.com';
 
 module.exports = {
+  pemFileName : function(dirPath) {
+
+    var fileName
+    let files = fs.readdirSync(dirPath);
+
+    for (key in files) {
+
+      let file = files[key]
+      if (path.extname(file) === '.pem') {
+        fileName = file
+        break
+      }
+    }
+
+    return fileName
+  },
+  certificationFilePath : function() {
+
+    let dirPath = './apns/keys/cert/'
+    return dirPath + this.pemFileName(dirPath)
+  },
+  keyFilePath : function() {
+
+    let dirPath = './apns/keys/key/'
+    return dirPath + this.pemFileName(dirPath)
+  },
   options : {
     // token: {
     //   key: "path/to/APNsAuthKey_XXXXXXXXXX.p8",
@@ -15,8 +43,8 @@ module.exports = {
     //   port: 8080
     // },
 
-    cert: './apns/keys/cert.pem',
-    key: './apns/keys/key.pem',
+    cert: './apns/keys/cert/cert.pem',
+    key: './apns/keys/ket/key.pem',
     production: false
   },
   push : function(production, appId, token, noteJson, sendPushResultCallback) {
@@ -27,19 +55,21 @@ module.exports = {
     var options = this.options;
 
     options.production = production ? true : false;
+    options.cert       = this.certificationFilePath()
+    options.key        = this.keyFilePath()
 
-    var apnProvider = new apn.Provider(options);
+    var apnProvider  = new apn.Provider(options);
     var notification = new apn.Notification();
 
-    notification.badge = noteJson.aps.badge;
-    notification.sound = noteJson.aps.sound;
-    notification.alert = noteJson.aps.alert;
+    notification.badge    = noteJson.aps.badge;
+    notification.sound    = noteJson.aps.sound;
+    notification.alert    = noteJson.aps.alert;
     notification.threadId = noteJson.aps["thread-id"];
     notification.category = noteJson.aps["category"];
 
     delete noteJson.aps;
-    notification.payload = noteJson;
-    notification.topic = appId;
+    notification.payload  = noteJson;
+    notification.topic    = appId;
 
     console.log("=== Start APNs Push ====");
     console.log("gateway : " + (options.production ? gateway : sandboxGateway));

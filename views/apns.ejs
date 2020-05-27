@@ -14,29 +14,65 @@
 
     <main class="container" role="main">
 
+      <div class="fileUpload">
+        <label for="">Certification file(.pem)</label>
+        <span style="color: red;">*&nbsp;</span>
+        <div class="card">
+          <form method="POST" action="/apns/upload/certfile" enctype="multipart/form-data">
+            <div class="custom-file">
+              <div class="input-group mb-3">
+                <label class="file-upload-label" for="customFile"><% if (certFileName != 'undefined') { %> <%= certFileName %> <% } else { %> Choose a file <% }%></label>
+                <input type="file" class="custom-file-input form-control" name="certFile" id="customFile">
+                <input type="hidden" name="filename">
+                <div class="input-group-append">
+                  <button class="btn btn-dark" type="submit">UPLOAD</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      <br>
+        <label for="">key file(.pem)</label>
+        <span style="color: red;">*&nbsp;</span>
+          <div class="card">
+            <form method="POST" action="/apns/upload/keyfile" enctype="multipart/form-data">
+              <div class="custom-file">
+                <div class="input-group mb-3">
+                  <label class="file-upload-label" for="customFile"><% if (keyFileName != 'undefined') { %> <%= keyFileName %> <% } else { %> Choose a file <% }%></label>
+                  <input type="file" class="custom-file-input form-control" name="keyFile" id="customFile">
+                  <input type="hidden" name="filename">
+                  <div class="input-group-append">
+                    <button class="btn btn-dark" type="submit">UPLOAD</button>
+                  </div>
+              </div>
+              </div>
+            </form>
+          </div>
+      </div>
+
       <div class="modal-body" id="myModal">
-                    <div class="form-group">
-                      <label for="appId">APP ID :</label>
-                      <span style="color: red;">*&nbsp;</span>
-                      <input type="text" class="form-control" name="appId" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="token">TOKEN :</label>
-                      <span style="color: red;">*&nbsp;</span>
-                      <input type="text" class="form-control" name="token" required>
-                    </div>
+        <div class="form-group">
+          <label for="appId">APP ID :</label>
+          <span style="color: red;">*&nbsp;</span>
+          <input type="text" class="form-control" name="appId" required>
+        </div>
+        <div class="form-group">
+          <label for="token">TOKEN :</label>
+          <span style="color: red;">*&nbsp;</span>
+          <input type="text" class="form-control" name="token" required>
+        </div>
 
-                    <input type="radio" name="production" value="0" checked> sandbox <input type="radio" name="production" value="1"> production
-                    <br><br>
-                    <div id="jsoneditor" style="height: 300px;"></div>
-                  </div>
+        <input type="radio" name="production" value="0" checked> sandbox <input type="radio" name="production" value="1"> production
+        <br><br>
+        <div id="jsoneditor" style="height: 300px;"></div>
+      </div>
 
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-warning btn-modal-sendpush">SEND PUSH</button>
-                    </div>
-                  </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <div class="btn-group">
+          <button type="button" class="btn btn-warning btn-modal-sendpush">SEND PUSH</button>
+        </div>
+      </div>
 
     </main>
 
@@ -46,14 +82,14 @@
       </ul>
     </footer>
 
-    </body>
+  </body>
 
-    <script src="javascripts/requireJS.js"></script>
-    <script src="javascripts/requireJSConfig.js"></script>
-    <script type="text/javascript">
-      requirejs(['apns'], function (APP) {
-        let app = new APP();
-      });
-    </script>
+  <script src="javascripts/requireJS.js"></script>
+  <script src="javascripts/requireJSConfig.js"></script>
+  <script type="text/javascript">
+    requirejs(['apns'], function (APP) {
+      let app = new APP();
+    });
+  </script>
 
 </html>

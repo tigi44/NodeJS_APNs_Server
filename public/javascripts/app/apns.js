@@ -1,6 +1,13 @@
 define(['jquery', 'request', 'jsonEditor'], function($, REQUEST, JSONEDITOR) {
 
   $(document).on('click', '.btn-modal-sendpush', sendpushButton);
+  $(document).on('change', '.custom-file-input', fileUpload);
+
+  function fileUpload(e) {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".file-upload-label").addClass("selected").html(fileName);
+    $(this).next().val(fileName);
+  }
 
   function sendpushButton(e) {
     let $modal = $("#myModal");
