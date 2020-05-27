@@ -6,10 +6,15 @@ const sandboxGateway = 'gateway.sandbox.push.apple.com';
 const gateway        = 'gateway.push.apple.com';
 
 module.exports = {
+  certDirPath : './apns/keys/cert/',
+  keyDirPath : './apns/keys/key/',
   pemFileName : function(dirPath) {
 
     var fileName
     let files = fs.readdirSync(dirPath);
+    files.sort(function(a, b) {
+      return fs.statSync(dirPath + b).mtime.getTime() - fs.statSync(dirPath + a).mtime.getTime();
+    });
 
     for (key in files) {
 
@@ -24,12 +29,20 @@ module.exports = {
   },
   certificationFilePath : function() {
 
-    let dirPath = './apns/keys/cert/'
+    let dirPath = this.certDirPath
+    if (!fs.existsSync(dirPath)){
+      fs.mkdirSync(dirPath)
+    }
+
     return dirPath + this.pemFileName(dirPath)
   },
   keyFilePath : function() {
 
-    let dirPath = './apns/keys/key/'
+    let dirPath = this.keyDirPath
+    if (!fs.existsSync(dirPath)){
+      fs.mkdirSync(dirPath)
+    }
+
     return dirPath + this.pemFileName(dirPath)
   },
   options : {

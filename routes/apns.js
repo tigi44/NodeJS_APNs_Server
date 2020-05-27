@@ -8,12 +8,7 @@ const apn     = require('../routes/modules/sendApns');
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
 
-    var uploadPath
-    if (file.fieldname.includes('cert')) {
-      uploadPath = './apns/keys/cert/'
-    } else {
-      uploadPath = './apns/keys/key/'
-    }
+    var uploadPath = (file.fieldname.includes('cert')) ? apn.certDirPath : apn.keyDirPath
 
     if (!fs.existsSync(uploadPath)){
       fs.mkdirSync(uploadPath)
