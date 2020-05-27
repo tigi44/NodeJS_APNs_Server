@@ -1,6 +1,6 @@
 {
   "name": "nodejsapnsserver",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "dev": "pm2-dev start ecosystem.config.js",
