@@ -1,10 +1,10 @@
 module.exports = {
   apps : [{
-    name      : 'NodeJSAPNsServer',
-    script    : './bin/www',
+    name      : 'NodeJS_APNs_Server',
+    script    : 'app.js',
     env: {
       FORCE_COLOR: 1,
-      PORT: 3000,
+      PORT: 13000,
       NODE_ENV: 'development'
     },
     env_production : {

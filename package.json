@@ -1,10 +1,13 @@
 {
-  "name": "nodejsapnsserver",
-  "version": "2.0.1",
+  "name": "NodeJS_APNs_Server",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
+    "test": "mocha",
     "dev": "pm2-dev start ecosystem.config.js",
-    "start": "pm2 start ecosystem.config.js --env production"
+    "dev-start": "pm2 startOrRestart ecosystem.config.js --watch --env development && pm2 log NodeJS_APNs_Server",
+    "start": "pm2 startOrRestart ecosystem.config.js --env production",
+    "deploy": "npm ci && npm run start"
   },
   "dependencies": {
     "apn": "^2.2.0",
@@ -18,6 +21,19 @@
     "morgan": "~1.9.1",
     "pm2": "^3.5.0",
     "serve-favicon": "~2.4.5",
-    "multer": "^1.4.1"
-  }
+    "multer": "^1.4.1",
+    "mocha": "^7.1.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tigi44/NodeJS_APNs_Server"
+  },
+  "author": "tigi44",
+  "license": "MIT"
 }

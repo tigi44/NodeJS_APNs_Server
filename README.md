@@ -5,19 +5,28 @@
 - [express](https://www.npmjs.com/package/express)
 - [node-apn](https://www.npmjs.com/package/apn)
 
-## INSTALL NPM
+# Install & Start
+
+- Unit Test ([mocha](https://www.npmjs.com/package/mocha))
 ```shell
-$ npm install
+$ npm run test
 ```
 
-## START Server
-- development
+- ENV development (default PORT : 13000)
 ```shell
+$ npm ci
 $ npm run dev
+or
+$ npm ci
+$ npm run dev-start
 ```
-- production
+
+- ENV production (default PORT : 80)
 ```shell
+$ npm ci
 $ npm run start
+or
+$ npm run deploy
 ```
 
 ## Generate Push Certificate
@@ -38,17 +47,6 @@ openssl pkcs12 -in key.p12 -out key.pem -nodes
 ```
 
 ### Setting push certificate files
-#### v1.0.0
-- setting push certificate files in apns server options
-```js
-// sendApns.js
-...
-options : {
-  cert: './apns/keys/cert.pem',
-  key: './apns/keys/key.pem'
-}
-...
-```
 
 #### v2.0.0
 - upload push certificate files on sendpush webpage
