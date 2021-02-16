@@ -9,7 +9,19 @@ define(['jsoneditor'], function(JSONEditor) {
                                 onModeChange : onModeChange
                               };
   let editor                = new JSONEditor(container, options);
+  let initialJson           = {
+    "aps": {
+      "alert": {
+        "body": "body",
+        "title": "title",
+        "subtitle": "subtitle"
+      },
+      "badge": 1,
+      "sound": "default"
+    }
+  }
 
+  editor.set(initialJson)
   insertValidateHTML();
 
   function insertValidateHTML() {
