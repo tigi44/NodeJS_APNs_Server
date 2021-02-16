@@ -1,5 +1,7 @@
 # NodeJS APNs Server
 
+![Node.js CI](https://github.com/tigi44/NodeJS_APNs_Server/workflows/Node.js%20CI/badge.svg)
+
 ## FEATURE
 - [NodeJS](https://nodejs.org)
 - [express](https://www.npmjs.com/package/express)
