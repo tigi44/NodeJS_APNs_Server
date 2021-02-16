@@ -1,3 +1,7 @@
+# Logs
+logs
+*.log
+
 # Runtime data
 pids
 *.pid
@@ -26,6 +30,7 @@ node_modules
 npm-debug.log
 
 # apns .pem
-apns/keys/cert.pem
-apns/keys/key.pem
-apns/keys/*
+apns/keys/cert/*
+apns/keys/key/*
+!apns/keys/cert/test_cert.pem
+!apns/keys/key/test_key.pem
