@@ -6,7 +6,7 @@ const gateway        = 'gateway.push.apple.com';
 
 class APNsDataSource {
 
-  options = {
+  options = () => { return {
     // token: {
     //   key: "path/to/APNsAuthKey_XXXXXXXXXX.p8",
     //   keyId: "key-id",
@@ -21,14 +21,9 @@ class APNsDataSource {
     key: './apns/keys/ket/key.pem',
     production: false
   }
+  }
 
   sendPush(certPemFilePath, keyPemFilePath, isProduction, appId, token, jsonData) {
-    console.log(certPemFilePath)
-    console.log(keyPemFilePath)
-    console.log(isProduction)
-    console.log(appId)
-    console.log(token)
-    console.log(jsonData)
     if (!certPemFilePath || !keyPemFilePath || !appId || !token || jsonData == null || jsonData.aps == null) {
       return Promise.reject(new Error('Error : send push parameter'));
     }
